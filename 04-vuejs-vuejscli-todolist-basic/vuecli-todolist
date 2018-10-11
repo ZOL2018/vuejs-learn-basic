@@ -1,0 +1,27 @@
+//vue cli
+//todoList
+
+npm run dev
+----
+package.json// 配置文件
+----
+
+<template> //只能拥有一个外部div盒子
+<div>//其他内容 必须在 盒子内部
+
+</div>
+</template>
+
+...
+
+//
+
+教学 视频 网站
+
+https://www.imooc.com/video/16986
+
+
+
+
+
+//

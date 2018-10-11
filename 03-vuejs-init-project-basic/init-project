@@ -1,0 +1,17 @@
+//需要 安装 nodejs
+//node -v
+//npm -v
+
+npm install vue-cli
+//cd bin目录 使用 vue -v
+
+...
+vue init webpack proj_name
+...
+### ####
+...
+
+...
+
+npm install
+npm run dev

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue - primer - basic</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+<div  id="root"><!--id 选择挂载点-->
+    <h1>{{msg}}</h1><!-- 模板 内容 -->
+    <h2>{{number}}</h2><!--{{参数}}} 插值表达式-->
+    <div v-text="content"></div><!--保留 标签-->
+    <div v-html="content"></div><!--不保留 标签-->
+
+    <div v-on:click="handleClick">{{msg}}</div><!--绑定点击事件-->
+    <div @click="handleClick2">{{msg}}</div><!--简写v-on: 绑定点击事件-->
+
+    <div v-bind:title="'what : ' + title">hello world4</div><!--属性绑定-->
+    <div :title="'what : ' + title">hello world4</div><!--简写v-bind: 属性绑定-->
+
+    <input :value="he5">
+    <input v-model="he5">
+    <div>{{he5}}</div>
+
+    <input v-model="firstName">
+    <input v-model="lastName">
+    <div>{{fullName}}</div>
+    <div>{{count}}</div>
+
+    <div v-if="show">show ?</div><!--会删除 或 增加 标签-->
+    <div v-show="show">show ?</div><!--适合 多次点击-->
+    <button @click="handleClick3">toggle</button>
+
+    <div v-for="(item, index) of list" :key="index"><!--key 值 不可相同-->
+        {{item}}
+    </div>
+
+
+    
+</div>
+
+<script>
+    new Vue({
+        el: "#root",/*绑定挂载点*/
+        template: "",/*模板内容 注意 需要添加标签 才可加载解析内容*/
+        data:{/*绑定数据*/
+            msg: "hello world!",
+            number: 123,
+            content: "<h1>hello2</h1>",
+            title: "this is title",
+            he5: "hello5",
+            firstName: "",
+            lastName: "",
+            count: 0,
+            show: true,
+            list:[1, 2, 3]
+        },
+        watch:{
+            firstName:function () {
+                this.count ++
+            },
+            lastName:function () {
+                this.count ++
+            }
+        },
+        computed:{
+            fullName:function () {
+                return this.firstName + ' '+ this.lastName
+            }
+        },
+        methods:{
+            handleClick:function () {
+                this.msg = "hello3"
+            },
+            handleClick2:function () {
+                this.msg = "hello world!"
+            },
+            handleClick3:function () {
+                this.show = !this.show
+            }
+        }
+    })
+</script>
+</body>
+</html>
